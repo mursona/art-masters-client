@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../layout/Main';
+import Blog from '../../pages/Blog/Blog';
 import Checkout from '../../pages/Checkout/Checkout';
 import Home from '../../pages/Home/Home/Home';
 import Login from '../../pages/Login/Login';
@@ -23,6 +24,10 @@ import Signup from '../../pages/Signup/Signup';
                 {
                     path:'/signup',
                     element: <Signup></Signup>
+                },
+                {
+                    path:'/blog',
+                    element: <Blog></Blog>
                 },
                 {
                     path:'checkout/:id',
