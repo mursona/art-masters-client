@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ServiceCard = ({service}) => {
-
-const {_id, img, price, title} = service;
+const ShowAllCard = ({service}) => {
+    const {_id, img, price, title} = service;
 
     return (
         <div className="card flex flex-col items-center justify-center w-full max-w-sm mx-auto bg-white">
@@ -22,4 +21,4 @@ const {_id, img, price, title} = service;
     );
 };
 
-export default ServiceCard;
+export default ShowAllCard;
