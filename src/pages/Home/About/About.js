@@ -1,27 +1,108 @@
 import React from 'react';
-import image1 from '../../../assets/banner/13.png'
-import image2 from '../../../assets/banner/12.png'
 
 const About = () => {
     return (
-        <div className="hero w-10/12 mx-auto my-20">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className='w-1/2 relative'>
-            <img src={image1} className="w-96 rounded-lg shadow-2xl ml-auto" alt='' />
-            <img src={image2} className="absolute left-16 top-36 w-3/5 rounded-md shadow-2xl border-8 border-fuchsia-100" alt='' />
+        <div className="py-16 w-10/12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
+            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
+              <svg className="text-teal-900 w-7 h-7" viewBox="0 0 24 24">
+                <polyline
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  points=" 8,5 8,1 16,1 16,5"
+                  strokeLinejoin="round"
+                />
+                <polyline
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  points="9,15 1,15 1,5 23,5 23,15 15,15"
+                  strokeLinejoin="round"
+                />
+                <polyline
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  points="22,18 22,23 2,23 2,18"
+                  strokeLinejoin="round"
+                />
+                <rect
+                  x="9"
+                  y="13"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  width="6"
+                  height="4"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
-            <div className='w-1/2'>
-            <p className='text-2xl font-bold text-sky-500 my-4'>About Us</p>
-            <h1 className="text-5xl font-bold my-4">
-                Art Masters Given! <br />
-                We are qualified <br />
-                That is aswome
-                </h1>
-            <p className="my-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            <button className="btn btn-gray">Get Started</button>
+            <div className="max-w-xl mb-6">
+              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                Let us art
+                <br className="hidden md:block" />
+                your next{' '}
+                <span className="inline-block text-deep-purple-accent-400">
+                  destination
+                </span>
+              </h2>
+              <p className="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae. explicabo.
+              </p>
             </div>
+            <div>
+              <a
+                href="/"
+                aria-label=""
+                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+              >
+                Learn more
+                <svg
+                  className="inline-block w-3 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 12 12"
+                >
+                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="flex items-center justify-center -mx-4 lg:pl-8">
+            <div className="flex flex-col items-end px-3">
+              <img
+                className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
+                src="https://images.unsplash.com/photo-1583934754518-17915fd797f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHBhaW50aW5nJTIwYXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt=""
+              />
+              <img
+                className="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
+                src="https://images.unsplash.com/photo-1618331833071-ce81bd50d300?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzR8fHBhaW50aW5nJTIwYXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt=""
+              />
+            </div>
+            <div className="px-3">
+              <img
+                className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
+                src="https://images.unsplash.com/photo-1613574714687-c33b9e90200d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFpbnRpbmclMjBhcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
     );
 };
 
