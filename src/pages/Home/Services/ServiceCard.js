@@ -15,7 +15,7 @@ const {_id, img, price, title} = service;
             <figure><img src={img} alt="Shoes" /></figure>
             <div class="bg-fuchsia-100 px-4 flex items-center justify-between py-2 dark:bg-gray-700">
             <span class="font-bold text-gray-800 dark:text-gray-200">Charge: ${price}</span>
-            <Link  class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none" to={`/checkout/${_id}`}> See More </Link>
+            <Link  class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none" to={`/checkout/${_id}`}>View Details</Link>
         </div>
         </div>
         </div>
