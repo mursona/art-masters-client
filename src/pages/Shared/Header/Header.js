@@ -4,11 +4,12 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import logo from '../../../assets/logo.png'
 
 const Header = () => {
+
     const menuItems = 
         <>
-        <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/login'>Login</Link></li>
-        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/'>Home</Link></li>
+        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/login'>Login</Link></li>
+        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/blog'>Blog</Link></li>
         </>
 
     return (
