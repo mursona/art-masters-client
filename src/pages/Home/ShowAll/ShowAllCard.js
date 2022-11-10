@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ShowAllCard = ({service}) => {
-    const {_id, img, price, title} = service;
+    const {_id, img, price, title, description} = service;
 
     return (
         <div className="card flex flex-col items-center justify-center w-full max-w-sm mx-auto bg-white">
@@ -11,7 +11,7 @@ const ShowAllCard = ({service}) => {
             <h2 className="card-title">
             {title}
             </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <p>{description}</p>
             
             {/* image react photo viewer */}
             <PhotoProvider speed={() => 800}
