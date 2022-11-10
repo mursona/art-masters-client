@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ReviewTable = ({review, handleDelete, handleStatusUpdate}) => {
 
-    const { _id, serviceName, rating, customer, price, service, feedback } = review;
+    const { _id, title, rating, customer, price, service, feedback } = review;
     const [reviewService, setReviewService] = useState({});
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const ReviewTable = ({review, handleDelete, handleStatusUpdate}) => {
             </div>
         </td>
         <td>
-            {serviceName}
+            {title}
             <br />
             <span className="badge badge-ghost badge-sm">${price}</span>
         </td>

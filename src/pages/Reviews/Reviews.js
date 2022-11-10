@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hook/UseTitle';
 import ReviewTable from './ReviewTable';
 
 const Reviews = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([]);
+    useTitle('Review');
 
     useEffect(() => {
         fetch(`https://art-masters-server.vercel.app/reviews?email=${user?.email}`,{
@@ -70,32 +72,38 @@ const Reviews = () => {
 
     return (
         <div>
-            <h2 className="text-5xl">You have {reviews.length} Reviews</h2>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th>
-                            </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map(review => <ReviewTable
-                                key={review._id}
-                                review={review}
-                                handleDelete={handleDelete}
-                                handleStatusUpdate={handleStatusUpdate}
-                            >
-                            </ReviewTable>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+                {     
+                    (reviews.length === 0) ? <p>No Review Submitted</p> 
+                    : 
+                    <>
+                    <div className="overflow-x-auto w-full">
+                    You have Reviews
+                    <table className="table w-full">
+                        <thead>
+                            <tr>
+                                <th>
+                                </th>
+                                <th>Name</th>
+                                <th>Job</th>
+                                <th>Favorite Color</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                reviews.map(review => <ReviewTable
+                                    key={review._id}
+                                    review={review}
+                                    handleDelete={handleDelete}
+                                    handleStatusUpdate={handleStatusUpdate}
+                                >
+                                </ReviewTable>)
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                    </>
+                }
         </div>
     );
 };
