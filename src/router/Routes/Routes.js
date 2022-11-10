@@ -43,7 +43,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
                 },
                 {
                     path:'checkout/:id',
-                    element: <Checkout></Checkout>,
+                    element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                     loader: ({params}) => fetch(`https://art-masters-server.vercel.app/services/${params.id}`)
                 },
                 {
