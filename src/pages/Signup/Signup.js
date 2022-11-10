@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../api/auth';
 import img from '../../assets/login.gif';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -10,8 +10,11 @@ import { Audio } from 'react-loader-spinner';
 const Signup = () => {
     
     const {createUser, loading} = useContext(AuthContext);
-
+    const location = useLocation();
+    const navigate = useNavigate();
     useTitle('SignUp');
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignUp = event =>{
         event.preventDefault();
@@ -24,6 +27,7 @@ const Signup = () => {
             const user = result.user;
             console.log(user);
             setAuthToken(user);
+            navigate(from, { replace: true });
         })
         .catch(err => console.error(err));
     }
