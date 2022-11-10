@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginimg from '../../assets/login.gif'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
 
 const {login} = useContext(AuthContext);
+const location = useLocation();
+const navigate = useNavigate();
+
+const from = location.state?.from?.pathname || '/';
 
 const handleLogin = event => {
     event.preventDefault();
@@ -14,11 +18,35 @@ const handleLogin = event => {
     const password = form.password.value;
 
     login(email, password)
-    .then( result => {
-        const user = result.user;
-        console.log(user);
-    })
-    .catch(err => console.error(err));
+        .then(result => {
+            const user = result.user;
+
+
+            const currentUser = {
+                email: user.email
+            }
+
+            console.log(currentUser);
+
+            // get jwt token
+            fetch('https://art-masters-server.vercel.app/jwt', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    // local storage is the easiest but not the best place to store jwt token
+                    localStorage.setItem('art-token', data.token);
+                    navigate(from, { replace: true });
+                });
+            
+        })
+        .catch(error => console.log(error));
+
 }    
 
     return (

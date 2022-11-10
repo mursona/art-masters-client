@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import AllReviews from '../Reviews/AllReviews';
 
 const Checkout = () => {
 
@@ -33,10 +32,11 @@ const Checkout = () => {
 
         // }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://art-masters-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('art-token')}`
             },
             body: JSON.stringify(review)
         })
@@ -44,7 +44,7 @@ const Checkout = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Review posted successfully')
+                    alert('Review given successfully')
                     form.reset();
                     
                 }
@@ -56,7 +56,6 @@ const Checkout = () => {
 
     return (
         <section class="max-w-4xl p-6 my-16 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-        <AllReviews></AllReviews>
         <form onSubmit={handlePlaceReview}>
         <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">You are about to review: {title}</h2>
         <h3>Price: ${price}</h3>

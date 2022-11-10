@@ -21,7 +21,7 @@ const AddService = () => {
         };
 
             //posting method
-    fetch("http://localhost:5000/services", {
+    fetch("https://art-masters-server.vercel.app/services", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -8,6 +8,7 @@ import ShowAll from '../../pages/Home/ShowAll/ShowAll';
 import Login from '../../pages/Login/Login';
 import Reviews from '../../pages/Reviews/Reviews';
 import Signup from '../../pages/Signup/Signup';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 
     const router = createBrowserRouter([
@@ -38,12 +39,12 @@ import Signup from '../../pages/Signup/Signup';
                 },
                 {
                     path: '/reviews',
-                    element: <Reviews></Reviews>
+                    element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
                 },
                 {
                     path:'checkout/:id',
-                    element:<Checkout></Checkout>,
-                    loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                    element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+                    loader: ({params}) => fetch(`https://art-masters-server.vercel.app/services/${params.id}`)
                 },
                 {
                     path:'addservice',
