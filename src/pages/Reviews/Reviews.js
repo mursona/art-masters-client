@@ -37,7 +37,7 @@ const Reviews = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({status: 'Approved'})
+            body: JSON.stringify({feedback: 'Approved'})
         })
         .then(res => res.json())
         .then(data => {
@@ -45,7 +45,7 @@ const Reviews = () => {
             if(data.modifiedCount > 0) {
                 const remaining = reviews.filter(odr => odr._id !== id);
                 const approving = reviews.find(odr => odr._id === id);
-                approving.status = 'Approved'
+                approving.feedback = 'Approved'
 
                 const newReviews = [approving, ...remaining];
                 setReviews(newReviews);

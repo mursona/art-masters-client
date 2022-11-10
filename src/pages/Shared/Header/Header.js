@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import logo from '../../../assets/logo.png'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
+
     const menuItems = 
         <>
-        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/'>Home</Link></li>
-        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/login'>Login</Link></li>
-        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/blog'>Blog</Link></li>
-        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/reviews'>My Review</Link></li>
-        <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/addservice'>Add Service</Link></li>
+        {
+            user?.email ? 
+            <>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/'>Home</Link></li>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/blog'>Blog</Link></li>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/reviews'>My Review</Link></li>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/addservice'>Add Service</Link></li>
+            </>
+            :
+            <>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/'>Home</Link></li>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/blog'>Blog</Link></li>
+                <li className='font-semibold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'><Link to='/login'>Login</Link></li>
+            </>
+        }
         </>
 
     return (
@@ -34,9 +53,16 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-            <button className="btn btn-outline btn-gray">Get Started</button>
+            <>
+            {
+            user?.email ?
+            <>  
+            <div className='navbar-end'>
+            <li onClick={ handleLogOut } className="btn btn-outline btn-gray">Logout</li>
             </div>
+            </>:<></>
+            }
+            </>
         </div>
     );
 };
