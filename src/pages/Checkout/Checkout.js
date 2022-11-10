@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hook/UseTitle';
+import moment from 'moment';
+import toast from 'react-hot-toast';
 
 const Checkout = () => {
 
@@ -16,6 +18,7 @@ const Checkout = () => {
         const email = user?.email || 'unregistered';
         const rating = form.rating.value;
         const feedback = form.feedback.value;
+        const time = `${moment().format('Do MMM YY, h:mm')}`
 
         const review = {
             service: _id,
@@ -23,6 +26,7 @@ const Checkout = () => {
             price,
             customer: name,
             email,
+            time : time,
             rating,
             feedback
         }
@@ -46,7 +50,7 @@ const Checkout = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Review given successfully')
+                    toast.success('Successfully Provide Feedback')
                     form.reset();
                     
                 }

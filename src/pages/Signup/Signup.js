@@ -8,7 +8,7 @@ import useTitle from '../../hook/UseTitle';
 
 const Signup = () => {
     
-    const {createUser} = useContext(AuthContext);
+    const {createUser, loading} = useContext(AuthContext);
 
     useTitle('SignUp');
 
@@ -25,6 +25,11 @@ const Signup = () => {
             setAuthToken(user);
         })
         .catch(err => console.error(err));
+    }
+
+    if(loading){
+        return <div className="w-2/12 m-auto mt-10 bg-slate-300 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400">
+        </div>
     }
 
     return (

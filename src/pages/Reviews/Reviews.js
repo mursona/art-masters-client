@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hook/UseTitle';
 import ReviewTable from './ReviewTable';
+import toast from 'react-hot-toast';
 
 const Reviews = () => {
 
@@ -39,7 +40,7 @@ const Reviews = () => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount > 0){
-                    alert('deleted successfully');
+                    toast.success('Successfully Deleted')
                     const remaining = reviews.filter(odr => odr._id !== id);
                     setReviews(remaining);
                 }
@@ -73,19 +74,19 @@ const Reviews = () => {
     return (
         <div>
                 {     
-                    (reviews.length === 0) ? <p>No Review Submitted</p> 
+                    (reviews.length === 0) ? <p className='text-4xl text-center my-16'>No Review Submitted Yet! Please provide review</p> 
                     : 
                     <>
+                    <p className='text-3xl text-center text-sky-500 my-16'>Your Reviews</p>
                     <div className="overflow-x-auto w-full">
-                    You have Reviews
                     <table className="table w-full">
                         <thead>
                             <tr>
-                                <th>
-                                </th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
+                                <th></th>
+                                <th>Services Photo</th>
+                                <th>Service Name</th>
+                                <th>Reviewer Name</th>
+                                <th>Your Feedback</th>
                                 <th></th>
                             </tr>
                         </thead>
