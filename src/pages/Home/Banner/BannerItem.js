@@ -14,13 +14,12 @@ const BannerItem = ({slide}) => {
             </div>
             <div className="absolute flex justify-start left-12 top-10">
                 <h1 className='text-5xl font-bold text-fuchsia-100'>
-                    hello <br />
-                    world <br />
-                    serving
+                    Art <br />
+                    Master's
                 </h1>
             </div>
-            <div className="absolute flex justify-start left-12 top-52 w-1/2">
-                <p className='text-fuchsia-100'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus, ipsam deserunt! Magni, necessitatibus vel molestias totam modi mollitia incidunt corrupti fugiat odio. Inventore vero error alias voluptatum similique labore aperiam.</p>
+            <div className="absolute flex justify-start left-12 top-40 w-1/2">
+                <p className='text-fuchsia-100'>Painting, the expression of ideas and emotions, with the creation of certain aesthetic qualities, in a two-dimensional visual language. The elements of this language—its shapes, lines, colours, tones, and textures—are used in various ways to produce sensations of volume, space, movement, and light on a flat surface.</p>
             </div>
             <div className="absolute flex justify-start left-12 top-80 w-1/2">
             <button className="btn btn-outline bg-fuchsia-100 mr-4">Get Started</button>

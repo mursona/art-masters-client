@@ -4,10 +4,11 @@ import loginimg from '../../assets/login.gif'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hook/UseTitle';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { Audio } from 'react-loader-spinner';
 
 const Login = () => {
 
-const {login} = useContext(AuthContext);
+const {login, loading} = useContext(AuthContext);
 const location = useLocation();
 const navigate = useNavigate();
 useTitle('Login');
@@ -51,6 +52,17 @@ const handleLogin = event => {
         .catch(error => console.log(error));
 
 }    
+if(loading){
+    return <Audio
+    height="80"
+    width="80"
+    radius="9"
+    color="blue"
+    ariaLabel="loading"
+    wrapperStyle
+    wrapperClass
+  />
+}
 
     return (
         <div className="hero w-10/12 mx-auto my-20">

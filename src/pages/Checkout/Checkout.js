@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hook/UseTitle';
 import moment from 'moment';
 import toast from 'react-hot-toast';
+import AllReviews from '../Reviews/AllReviews';
 
 const Checkout = () => {
 
@@ -61,9 +62,10 @@ const Checkout = () => {
     }
 
     return (
+        <div className='grid grid-cols-2'>
         <section className="max-w-4xl p-6 my-16 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
         <form onSubmit={handlePlaceReview}>
-            <div className='grid grid-cols-2'>
+            <div>
             <div>
             <img src={img} alt="" />
             </div>
@@ -75,7 +77,7 @@ const Checkout = () => {
             </div>
             </div>
         <div className='bg-fuchsia-100 px-10 py-10'>
-        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">You are about to review:</h2>
+        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Give Your Valuable review:</h2>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">First Name</label>
@@ -106,7 +108,11 @@ const Checkout = () => {
             </div>
         </div>
         </form>
-    </section>
+        </section>
+        <section className="max-w-4xl p-6 my-16 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <AllReviews></AllReviews>
+        </section>
+        </div>
     );
 };
 

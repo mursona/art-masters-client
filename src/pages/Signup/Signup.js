@@ -5,6 +5,7 @@ import { setAuthToken } from '../../api/auth';
 import img from '../../assets/login.gif';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hook/UseTitle';
+import { Audio } from 'react-loader-spinner';
 
 const Signup = () => {
     
@@ -28,8 +29,15 @@ const Signup = () => {
     }
 
     if(loading){
-        return <div className="w-2/12 m-auto mt-10 bg-slate-300 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400">
-        </div>
+        return <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="blue"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+      />
     }
 
     return (

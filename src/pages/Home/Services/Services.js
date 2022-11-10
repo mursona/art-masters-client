@@ -1,16 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Audio } from 'react-loader-spinner';
 
 const Services = () => {
 
 const  [services, setServices] = useState([]);
+const {loading} = useContext(AuthContext)
 
-useEffect(() => {
-    fetch('https://art-masters-server.vercel.app/services')
-    .then(res => res.json())
-    .then(data => setServices(data))
-}, [])
+    useEffect(() => {
+        fetch('https://art-masters-server.vercel.app/services')
+        .then(res => res.json())
+        .then(data => setServices(data))
+    }, [])
+
+    if(loading){
+        return <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="blue"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+      />
+    }
+
 
     return (
         <div className='w-10/12 mx-auto my-16'>
