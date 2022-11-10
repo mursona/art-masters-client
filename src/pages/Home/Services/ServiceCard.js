@@ -12,7 +12,7 @@ const {_id, img, price, title, description} = service;
             <h2 className="card-title">
             {title}
             </h2>
-            <p>{description}</p>
+            <p>{description.slice(0, 100) + '...'}</p>
 
             {/* image react photo viewer */}
             <PhotoProvider speed={() => 800}

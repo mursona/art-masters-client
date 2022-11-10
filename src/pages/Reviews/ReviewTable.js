@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ReviewTable = ({review, handleDelete, handleStatusUpdate}) => {
 
-    const { _id, serviceName, rating, customer, price, service, status } = review;
+    const { _id, serviceName, rating, customer, price, service, feedback } = review;
     const [reviewService, setReviewService] = useState({});
 
     useEffect(() => {
@@ -22,9 +22,9 @@ const ReviewTable = ({review, handleDelete, handleStatusUpdate}) => {
             <div className="flex items-center space-x-3">
                 <div className="avatar">
                     <div className="rounded w-24 h-24">
-                        {
-                            reviewService?.img && <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />
-                        }
+                            {
+                                reviewService?.img && 
+                                <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />}
                     </div>
                 </div>
                 <div>
@@ -42,7 +42,7 @@ const ReviewTable = ({review, handleDelete, handleStatusUpdate}) => {
         <th>
             <button 
             onClick={() => handleStatusUpdate(_id)}
-            className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
+            className="btn btn-ghost btn-xs">{feedback ? feedback : 'pending'}</button>
         </th>
     </tr>
     );
