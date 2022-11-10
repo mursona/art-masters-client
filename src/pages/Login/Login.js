@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginimg from '../../assets/login.gif'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hook/UseTitle';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -76,10 +77,11 @@ const handleLogin = event => {
                 </label>
                 </div>
                 <div className="form-control mt-6">
-                    <input type="submit" className="btn btn-primary" value="Login" />
+                <input type="submit" className="btn btn-gray-500" value="Login" />
                 </div>
+                <SocialLogin></SocialLogin>
                 </form>
-                <p className='text-center mb-4'>New to here! <Link className='text-indigo-500 font-bold' to='/signup'>Sign up</Link> </p>
+                <p className='text-center mb-4'>New to here! <Link className='text-sky-500 font-bold' to='/signup'>Sign up</Link> </p>
             </div>
         </div>
         </div>
