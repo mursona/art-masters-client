@@ -3,6 +3,7 @@ import Main from '../../layout/Main';
 import AddService from '../../pages/AddService/AddService';
 import Blog from '../../pages/Blog/Blog';
 import Checkout from '../../pages/Checkout/Checkout';
+import About from '../../pages/Home/About/About';
 import Home from '../../pages/Home/Home/Home';
 import ShowAll from '../../pages/Home/ShowAll/ShowAll';
 import Login from '../../pages/Login/Login';
@@ -49,6 +50,10 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
                 {
                     path:'addservice',
                     element: <AddService></AddService>,
+                },
+                {
+                    path:'about',
+                    element: <About></About>
                 }
 
             ]
