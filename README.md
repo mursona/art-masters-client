@@ -2,7 +2,7 @@
 
 ### `Art Masters`
 
-Description of project:
+Who are we?
 * Painting service website with professional design and modern functionality
 * Review Options for Per-Service Content
 * Unable to Access Art Masters Service after successfully login
